@@ -18,6 +18,10 @@ class Enemy {
     // which will ensure the game runs at the same speed for
     // all computers.
     this.x += this.speed * dt;
+    if(this.x > 505){
+        this.x = 0;
+        this.x += this.speed * dt;
+    }
     }
 
     // Draw the enemy on the screen, required method for game
@@ -33,8 +37,8 @@ class Enemy {
 class Player {
     constructor() {
         this.sprite = 'images/char-boy.png';
-        this.y = 200;
-        this.x = 380;
+        this.y = 405;
+        this.x = 200;
     }
 
     // Update the enemy's position, required method for game
@@ -43,7 +47,7 @@ class Player {
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
-    this.x += this.speed * dt;
+
     }
 
     // Draw the enemy on the screen, required method for game
@@ -54,19 +58,19 @@ class Player {
     handleInput(allowedKeys) {
         if(allowedKeys === 'left' && this.x > 0) {
             this.x -= 100;
-        } else if(allowedKeys === 'down' && this.y < 606) {
-            this.y += 80;
-        } else if(allowedKeys === 'right' && this.x < 505) {
+        } else if(allowedKeys === 'down' && this.y < 405) {
+            this.y += 85;
+        } else if(allowedKeys === 'right' && this.x < 400) {
             this.x += 100;
         } else if(allowedKeys === 'up' && this.y > 0) {
-            this.y -= 80;
+            this.y -= 85;
         }
     }
 }
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
-var allEnemies = [
+let allEnemies = [
     new Enemy(60, 450),
     new Enemy(145, 300),
     new Enemy(230, 400)
