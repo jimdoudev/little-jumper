@@ -19,7 +19,7 @@ class Enemy {
     // all computers.
     this.x += this.speed * dt;
     if(this.x > 505){
-        this.x = 0;
+        this.x = -50;
         this.x += this.speed * dt;
     }
     }
@@ -41,13 +41,23 @@ class Player {
         this.x = 200;
     }
 
-    // Update the enemy's position, required method for game
-    // Parameter: dt, a time delta between ticks
     update(dt) {
-    // You should multiply any movement by the dt parameter
-    // which will ensure the game runs at the same speed for
-    // all computers.
-
+        //collision detection
+        allEnemies.forEach(enemy => {
+            let dx = this.x - enemy.x;
+            let dy = this.y - enemy.y;
+            if (dx < 70 && dx > -70 && dy < 10 && dy > -10) {
+                this.x = 200;
+                this.y = 405;
+            }
+        })
+        //stepping on water
+        if(this.y === -20) {
+            setTimeout(() => {
+                this.x = 200;
+                this.y = 405;
+            }, 100);
+        }
     }
 
     // Draw the enemy on the screen, required method for game
@@ -71,7 +81,7 @@ class Player {
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
 let allEnemies = [
-    new Enemy(60, 450),
+    new Enemy(60, 150),
     new Enemy(145, 300),
     new Enemy(230, 400)
 ];
