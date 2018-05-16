@@ -33,9 +33,8 @@ class Enemy {
 class Player {
     constructor() {
         this.sprite = 'images/char-boy.png';
-        this.y = ;
-        this.x = ;
-        this.speed = speed;
+        this.y = 200;
+        this.x = 380;
     }
 
     // Update the enemy's position, required method for game
@@ -67,7 +66,13 @@ class Player {
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
+var allEnemies = [
+    new Enemy(60, 450),
+    new Enemy(145, 300),
+    new Enemy(230, 400)
+];
 
+let player = new Player();
 
 
 // This listens for key presses and sends the keys to your
