@@ -82,8 +82,8 @@ class Player {
 // Place the player object in a variable called player
 let allEnemies = [
     new Enemy(60, 150),
-    new Enemy(145, 300),
-    new Enemy(230, 400)
+    new Enemy(145, 100),
+    new Enemy(230, 200)
 ];
 
 let player = new Player();

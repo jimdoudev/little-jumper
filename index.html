@@ -2,10 +2,45 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Effective JavaScript: Frogger</title>
+    <title>Jumper</title>
+    <link href="https://fonts.googleapis.com/css?family=Bangers|Press+Start+2P" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+	<div class="container">
+		<div class="box header">
+			<h1>Little Jumper</h1>
+		</div>
+		<div class="box scores">
+			<span>Level: 1/5</span>
+			<span>Lives: 5</span>
+		</div>
+		<div class="box charlist">
+			<img class="chars" src="images/char-boy.png " alt="Boy Character">
+			<img class="chars" src="images/char-cat-girl.png" alt="Girl Cat Character">
+			<img class="chars" src="images/char-horn-girl.png" alt="Girl Horns Character">
+			<img class="chars" src="images/char-pink-girl.png" alt="Pink Girl Character">
+			<img class="chars" src="images/char-princess-girl.png" alt="Girl Princess Character">
+		</div>
+		<div class="box game">
+			<canvas id="canvas"></canvas>
+		</div>
+	</div>
+	<div id="modal1">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p>Congratulations!</p>
+            <p class="results"><span>Lives Left: 5</span> </p>
+            <p class="play-again">to play again, just press x! </p>
+        </div>
+    </div>
+    <div id="modal2">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p>Game Over!</p>
+            <p class="play-again">to play again, just press x! </p>
+        </div>
+    </div>
     <script src="js/resources.js"></script>
     <script src="js/app.js"></script>
     <script src="js/engine.js"></script>

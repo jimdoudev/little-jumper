@@ -1,3 +1,144 @@
 body {
     text-align: center;
+    font:3em 'Bangers', cursive;
+}
+
+.container {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.box {
+	width: 100%;
+}
+
+.game {
+	width: 50%;
+}
+
+.charlist {
+	width: 10%;
+	padding-top: 10px;
+}
+
+.chars {
+	width:50px;
+	height: auto;
+}
+
+.header {
+	width: 100%;
+	font:1em 'Bangers', cursive;
+	color: #1e90ff;
+	-webkit-text-stroke-width: 0.5px;
+    -webkit-text-stroke-color: black;
+	padding-left: 30px;
+}
+
+h1 {
+	margin: 0 0 20px 0;
+}
+
+#canvas {
+	width: 100%;
+	height: auto;
+}
+
+.scores {
+	font:0.3em 'Press Start 2P', cursive;
+}
+
+.scores span {
+	padding-left: 80px;
+}
+
+
+/*
+ * Styles for the winning modal
+ */
+
+#modal1 {
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background: rgba(0, 0, 0, 0.4);
+    position: fixed;
+    left: 0;
+    top: 0;
+    display: none;
+}
+
+.modal-content {
+    background: #1e90ff;
+    margin:15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    color: black;
+    text-shadow: none;
+    border-radius: 15px;
+    text-align: center;
+    animation-name: animatefromtop;
+    animation-duration: 0.5s;
+    position: relative;
+}
+
+@keyframes animatefromtop {
+    from {
+        top: -600px;
+        opacity: 0
+    }
+    to {
+        top: 0px;
+        opacity: 1
+    }
+}
+
+.results {
+    font-size: 0.6em;
+    text-align: center;
+}
+
+.play-again {
+    font-size: 0.4em;
+    text-align: center;
+}
+
+.close {
+    float: right;
+    font-size: 1em;
+}
+
+.close:hover {
+    color: #bbbbbb;
+    cursor: pointer;
+}
+
+/*
+ * Styles for the losing modal
+ */
+
+#modal2 {
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background: rgba(0, 0, 0, 0.4);
+    position: fixed;
+    left: 0;
+    top: 0;
+    display: none;
+}
+
+
+@media screen and (min-width: 907px) {
+	.container{
+		width: 790px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	.modal-content {
+		width: 784px;
+	}
 }
