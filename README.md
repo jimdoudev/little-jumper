@@ -1,6 +1,30 @@
-frontend-nanodegree-arcade-game
-===============================
+# Little Jumper - Object Oriented Javascript Project
 
-Students should use this [rubric](https://review.udacity.com/#!/projects/2696458597/rubric) for self-checking their submission. Make sure the functions you write are **object-oriented** - either class functions (like Player and Enemy) or class prototype functions such as Enemy.prototype.checkCollisions, and that the keyword 'this' is used appropriately within your class and class prototype functions to refer to the object the function is called upon. Also be sure that the **readme.md** file is updated with your instructions on both how to 1. Run and 2. Play your arcade game.
+## Table of Contents
 
-For detailed instructions on how to get started, check out this [guide](https://docs.google.com/document/d/1v01aScPjSWCCWQLIpFqvg3-vXLH2e8_SZQKC8jNO0Dc/pub?embedded=true).
+* [Instructions](#instructions)
+* [Code Dependencies](#code_dependencies)
+
+## Instructions
+
+-to play just clone the game using ```$ git clone``` and then load index.html file in your browser or click the link in the repository description
+
+-select any player you want to play with
+
+-every time you crash with a bug, you lose a life
+
+-try to reach the river to go to the next level
+
+-with every level, the bugs move faster
+
+-should you lose all 5 lives, the game is over
+
+-should you clear all 5 levels, you win the game
+
+## Code_Dependencies
+
+The app is built with the following code dependencies:
+
+1. Canvas
+2. Vanilla JavaScript
+3. CSS
