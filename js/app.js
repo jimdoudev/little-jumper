@@ -1,3 +1,4 @@
+let levelcounter = 1;
 // Enemies our player must avoid
 class Enemy {
     // Variables applied to each of our instances go here,
@@ -39,25 +40,67 @@ class Player {
         this.sprite = 'images/char-boy.png';
         this.y = 405;
         this.x = 200;
+        this.life = 5;
     }
 
     update(dt) {
         //collision detection
+        const modal2 = document.getElementById('modal2');
+        const lives = document.getElementById('lives');
+        const results = document.getElementById("results");
         allEnemies.forEach(enemy => {
             let dx = this.x - enemy.x;
             let dy = this.y - enemy.y;
             if (dx < 70 && dx > -70 && dy < 10 && dy > -10) {
                 this.x = 200;
                 this.y = 405;
+                this.life -= 1;
+                lives.innerHTML = `<span>Lives: ${this.life}</span>`;
+                results.innerHTML = `<span>Lives Left: ${this.life}</span>`;
+                if(this.life < 1) {
+                    modal2.style.display = 'block';
+                }
             }
         })
         //stepping on water
+        const level = document.getElementById('level');
         if(this.y === -20) {
-            setTimeout(() => {
-                this.x = 200;
-                this.y = 405;
-            }, 100);
+            this.x = 200;
+            this.y = 405;
+            allEnemies.forEach(enemy => {
+                enemy.speed += 20;
+            });
+            levelcounter += 1;
+            level.innerHTML = `<span>Level ${levelcounter}/5</span>`
+            };
+
+        //winning the game
+        const modal1 = document.getElementById('modal1');
+        if(levelcounter > 5) {
+            modal1.style.display = "block";
         }
+        //changing player
+        const cat = document.querySelector('.cat');
+        const boy = document.querySelector('.boy');
+        const horn = document.querySelector('.horn');
+        const pink = document.querySelector('.pink');
+        const princess = document.querySelector('.princess');
+
+        boy.addEventListener('click',() =>{
+            this.sprite = "images/char-boy.png";
+        });
+        cat.addEventListener('click',() =>{
+            this.sprite = "images/char-cat-girl.png";
+        });
+        horn.addEventListener('click',() => {
+            this.sprite = "images/char-horn-girl.png";
+        });
+        pink.addEventListener('click',() => {
+            this.sprite = "images/char-pink-girl.png";
+        });
+        princess.addEventListener('click',() => {
+            this.sprite = "images/char-princess-girl.png";
+        });
     }
 
     // Draw the enemy on the screen, required method for game

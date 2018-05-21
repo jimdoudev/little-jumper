@@ -155,12 +155,33 @@ var Engine = (function(global) {
         player.render();
     }
 
-    /* This function does nothing but it could have been a good place to
-     * handle game reset states - maybe a new game menu or a game over screen
-     * those sorts of things. It's only called once by the init() method.
+    /* Enables Modal Functionality and Implements
+     * the reset function
      */
+
+    const closeModal1 = document.querySelector("#x1");
+    closeModal1.addEventListener('click', function() {
+        reset();
+    });
+
+    const closeModal2 = document.querySelector("#x2");
+    closeModal2.addEventListener('click', function() {
+        reset();
+    });
+
     function reset() {
-        // noop
+    levelcounter = 1;
+    allEnemies = [
+    new Enemy(60, 150),
+    new Enemy(145, 100),
+    new Enemy(230, 200)
+    ];
+    player = new Player();
+    lives.innerHTML = `<span>Lives: 5</span>`;
+    level.innerHTML = `<span>Level 1/5</span>`;
+    results.innerHTML = `<span>Lives Left: 5</span>`;
+    modal1.style.display = "none";
+    modal2.style.display = "none";
     }
 
     /* Go ahead and load all of the images we know we're going to need to
@@ -172,7 +193,11 @@ var Engine = (function(global) {
         'images/water-block.png',
         'images/grass-block.png',
         'images/enemy-bug.png',
-        'images/char-boy.png'
+        'images/char-boy.png',
+        'images/char-cat-girl.png',
+        'images/char-horn-girl.png',
+        'images/char-pink-girl.png',
+        'images/char-princess-girl.png'
     ]);
     Resources.onReady(init);
 
