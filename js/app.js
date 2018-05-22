@@ -1,5 +1,15 @@
 //Declare globals
 let levelcounter = 1;
+const modal2 = document.getElementById('modal2');
+const lives = document.getElementById('lives');
+const results = document.getElementById("results");
+const level = document.getElementById('level');
+const modal1 = document.getElementById('modal1');
+const cat = document.querySelector('.cat');
+const boy = document.querySelector('.boy');
+const horn = document.querySelector('.horn');
+const pink = document.querySelector('.pink');
+const princess = document.querySelector('.princess');
 
 // Create Enemy class
 class Enemy {
@@ -36,9 +46,6 @@ class Player {
 
     update(dt) {
         //collision detection and changes to remaining lives
-        const modal2 = document.getElementById('modal2');
-        const lives = document.getElementById('lives');
-        const results = document.getElementById("results");
         allEnemies.forEach(enemy => {
             let dx = this.x - enemy.x;
             let dy = this.y - enemy.y;
@@ -55,7 +62,6 @@ class Player {
         });
 
         //Stepping on water and clearing a level
-        const level = document.getElementById('level');
         if (this.y === -20) {
             this.x = 200;
             this.y = 405;
@@ -67,18 +73,12 @@ class Player {
         }
 
         //Winning the game
-        const modal1 = document.getElementById('modal1');
         if (levelcounter > 5) {
             modal1.style.display = "block";
             level.innerHTML = `<span>Level 5/5</span>`;
         }
 
         //Changing player
-        const cat = document.querySelector('.cat');
-        const boy = document.querySelector('.boy');
-        const horn = document.querySelector('.horn');
-        const pink = document.querySelector('.pink');
-        const princess = document.querySelector('.princess');
 
         boy.addEventListener('click', () => {
             this.sprite = "images/char-boy.png";
