@@ -78,7 +78,7 @@ var Engine = (function(global) {
      */
     function update(dt) {
         updateEntities(dt);
-        // checkCollisions();
+        checkCollisions();
     }
 
     /* This is called by the update function and loops through all of the
@@ -106,19 +106,19 @@ var Engine = (function(global) {
          * for that particular row of the game level.
          */
         var rowImages = [
-                'images/water-block.png',   // Top row is water
-                'images/stone-block.png',   // Row 1 of 3 of stone
-                'images/stone-block.png',   // Row 2 of 3 of stone
-                'images/stone-block.png',   // Row 3 of 3 of stone
-                'images/grass-block.png',   // Row 1 of 2 of grass
-                'images/grass-block.png'    // Row 2 of 2 of grass
+                'images/water-block.png', // Top row is water
+                'images/stone-block.png', // Row 1 of 3 of stone
+                'images/stone-block.png', // Row 2 of 3 of stone
+                'images/stone-block.png', // Row 3 of 3 of stone
+                'images/grass-block.png', // Row 1 of 2 of grass
+                'images/grass-block.png' // Row 2 of 2 of grass
             ],
             numRows = 6,
             numCols = 5,
             row, col;
 
         // Before drawing, clear existing canvas
-        ctx.clearRect(0,0,canvas.width,canvas.height)
+        ctx.clearRect(0, 0, canvas.width, canvas.height)
 
         /* Loop through the number of rows and columns we've defined above
          * and, using the rowImages array, draw the correct image for that
@@ -170,18 +170,18 @@ var Engine = (function(global) {
     });
 
     function reset() {
-    levelcounter = 1;
-    allEnemies = [
-    new Enemy(60, 150),
-    new Enemy(145, 100),
-    new Enemy(230, 200)
-    ];
-    player = new Player();
-    lives.innerHTML = `<span>Lives: 5</span>`;
-    level.innerHTML = `<span>Level 1/5</span>`;
-    results.innerHTML = `<span>Lives Left: 5</span>`;
-    modal1.style.display = "none";
-    modal2.style.display = "none";
+        levelcounter = 1;
+        allEnemies = [
+            new Enemy(60, 150),
+            new Enemy(145, 100),
+            new Enemy(230, 200)
+        ];
+        player = new Player();
+        lives.innerHTML = `<span>Lives: 5</span>`;
+        level.innerHTML = `<span>Level 1/5</span>`;
+        results.innerHTML = `<span>Lives Left: 5</span>`;
+        modal1.style.display = "none";
+        modal2.style.display = "none";
     }
 
     /* Go ahead and load all of the images we know we're going to need to

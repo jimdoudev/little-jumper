@@ -20,7 +20,7 @@ class Enemy {
         this.speed = speed;
     }
 
-    // Update the enemy's position, required method for game
+    // Update the enemy's position
     update(dt) {
         this.x += this.speed * dt;
         if (this.x > 505) {
@@ -42,25 +42,24 @@ class Player {
         this.y = 405;
         this.x = 200;
         this.life = 5;
+        boy.addEventListener('click', () => {
+            this.sprite = "images/char-boy.png";
+        });
+        cat.addEventListener('click', () => {
+            this.sprite = "images/char-cat-girl.png";
+        });
+        horn.addEventListener('click', () => {
+            this.sprite = "images/char-horn-girl.png";
+        });
+        pink.addEventListener('click', () => {
+            this.sprite = "images/char-pink-girl.png";
+        });
+        princess.addEventListener('click', () => {
+            this.sprite = "images/char-princess-girl.png";
+        });
     }
 
     update(dt) {
-        //collision detection and changes to remaining lives
-        allEnemies.forEach(enemy => {
-            let dx = this.x - enemy.x;
-            let dy = this.y - enemy.y;
-            if (dx < 70 && dx > -70 && dy < 10 && dy > -10) {
-                this.x = 200;
-                this.y = 405;
-                this.life -= 1;
-                lives.innerHTML = `<span>Lives: ${this.life}</span>`;
-                results.innerHTML = `<span>Lives Left: ${this.life}</span>`;
-                if (this.life < 1) {
-                    modal2.style.display = 'block';
-                }
-            }
-        });
-
         //Stepping on water and clearing a level
         if (this.y === -20) {
             this.x = 200;
@@ -77,24 +76,6 @@ class Player {
             modal1.style.display = "block";
             level.innerHTML = `<span>Level 5/5</span>`;
         }
-
-        //Changing player
-
-        boy.addEventListener('click', () => {
-            this.sprite = "images/char-boy.png";
-        });
-        cat.addEventListener('click', () => {
-            this.sprite = "images/char-cat-girl.png";
-        });
-        horn.addEventListener('click', () => {
-            this.sprite = "images/char-horn-girl.png";
-        });
-        pink.addEventListener('click', () => {
-            this.sprite = "images/char-pink-girl.png";
-        });
-        princess.addEventListener('click', () => {
-            this.sprite = "images/char-princess-girl.png";
-        });
     }
 
     //Draw the player on the screen
@@ -116,7 +97,7 @@ class Player {
     }
 }
 
-// Instantiate your objects.
+// Instantiate objects
 let allEnemies = [
     new Enemy(60, 150),
     new Enemy(145, 100),
@@ -138,3 +119,22 @@ document.addEventListener('keyup', function(e) {
 
     player.handleInput(allowedKeys[e.keyCode]);
 });
+
+//function for collision detection and changes to remaining lives
+//gets called in engine.js
+function checkCollisions() {
+    allEnemies.forEach(enemy => {
+        let dx = player.x - enemy.x;
+        let dy = player.y - enemy.y;
+        if (dx < 70 && dx > -70 && dy < 10 && dy > -10) {
+            player.x = 200;
+            player.y = 405;
+            player.life -= 1;
+            lives.innerHTML = `<span>Lives: ${player.life}</span>`;
+            results.innerHTML = `<span>Lives Left: ${player.life}</span>`;
+            if (player.life < 1) {
+                modal2.style.display = 'block';
+            }
+        }
+    });
+}
